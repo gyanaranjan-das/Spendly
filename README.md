@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Spendly 💰
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Latest-47A248?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-Latest-0055FF?style=for-the-badge&logo=framer)](https://www.framer.com/motion/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-First, run the development server:
+**Spendly** is a smart, modern expense and subscription management platform designed to help you take full control of your finances. With an intuitive dashboard, automated subscription tracking, and real-time budgeting tools, Spendly makes managing money effortless and elegant.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Key Features
+
+- **📊 Comprehensive Dashboard**: Get a bird's-eye view of your financial health with real-time charts and summaries.
+- **💸 Expense Tracking**: Categorize and track every transaction with ease.
+- **📅 Subscription Manager**: Monitor your recurring payments and never miss a renewal date.
+- **🎯 Smart Budgeting**: Set monthly budgets for different categories and stay on track.
+- **🌗 Dark Mode & Premium UI**: A beautiful, responsive interface with cinematic animations powered by Framer Motion and Base UI.
+- **🔐 Secure Authentication**: Robust security powered by NextAuth.js with automatic login for a seamless experience.
+- **📄 Export Options**: Download your financial data as PDF or CSV for offline analysis.
+
+## 🚀 Tech Stack
+
+- **Frontend**: [Next.js](https://nextjs.org/) (App Router), [React 19](https://react.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/), [Base UI](https://base-ui.com/), [Lucide React](https://lucide.dev/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Backend**: Next.js Serverless Functions
+- **Database**: [MongoDB](https://www.mongodb.com/) with [Mongoose](https://mongoosejs.com/)
+- **Authentication**: [NextAuth.js](https://next-auth.js.org/)
+- **State Management**: [Zustand](https://zustand-demo.pmnd.rs/)
+- **Charts**: [Recharts](https://recharts.org/)
+- **Form Handling**: [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- Node.js 18.x or later
+- MongoDB instance (Local or Atlas)
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/gyanaranjan-das/Spendly.git
+   cd spendly
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env.local` file in the root directory and add the following:
+
+   ```env
+   MONGODB_URI=your_mongodb_connection_string
+   NEXTAUTH_SECRET=your_nextauth_secret
+   NEXTAUTH_URL=http://localhost:3000
+   ```
+
+4. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+src/
+├── app/            # Next.js App Router (Auth, Dashboard, API)
+├── components/     # UI and Layout components
+├── lib/            # Utilities and database configuration
+├── models/         # Mongoose schemas
+├── store/          # Zustand state management
+└── styles/         # Global styles
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+**Version:** 0.1.0 (Prototype / MVP Stage)  
+**Status:** In Development  
+**Last Updated:** May 15, 2026
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Made with ❤️.*
