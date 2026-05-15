@@ -1,4 +1,10 @@
 import mongoose from 'mongoose';
+import dns from 'dns';
+
+// Fix for DNS resolution issues in Node 18+
+if (dns.setDefaultResultOrder) {
+  dns.setDefaultResultOrder('ipv4first');
+}
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
