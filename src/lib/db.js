@@ -9,7 +9,7 @@ if (dns.setDefaultResultOrder) {
 const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
-  console.warn('⚠️ MONGODB_URI environment variable is missing. Set it in your local env file or deployment environment settings.');
+  throw new Error('MONGODB_URI environment variable is missing. Set it in your local env file or deployment environment settings.');
 }
 
 /**

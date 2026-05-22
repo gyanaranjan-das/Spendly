@@ -4,6 +4,7 @@ import User from '@/models/User';
 import bcrypt from 'bcryptjs';
 
 export const authOptions = {
+  trustHost: true,
   providers: [
     CredentialsProvider({
       name: 'Credentials',
@@ -51,7 +52,7 @@ export const authOptions = {
       return session;
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || process.env.AUTH_SECRET,
   pages: {
     signIn: '/login',
   },

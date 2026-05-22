@@ -5,7 +5,6 @@ import bcrypt from 'bcryptjs';
 
 export async function POST(req) {
   try {
-    await dbConnect();
     const { name, email, password } = await req.json();
 
     if (!name || !email || !password) {
@@ -14,6 +13,8 @@ export async function POST(req) {
         { status: 400 }
       );
     }
+
+    await dbConnect();
 
     const userExists = await User.findOne({ email });
 
@@ -39,6 +40,13 @@ export async function POST(req) {
     );
   } catch (error) {
     console.error('Registration Error:', error);
+
+    if (error.message?.includes('MONGODB_URI environment variable is missing')) {
+      return NextResponse.json(
+        { error: 'Database configuration is missing' },
+        { status: 503 }
+      );
+    }
 
     // Mongoose validation error
     if (error.name === 'ValidationError') {
