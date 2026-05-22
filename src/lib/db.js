@@ -1,3 +1,4 @@
+import { loadEnvConfig } from '@next/env';
 import dns from 'dns';
 import mongoose from 'mongoose';
 
@@ -5,6 +6,8 @@ import mongoose from 'mongoose';
 if (dns.setDefaultResultOrder) {
   dns.setDefaultResultOrder('ipv4first');
 }
+
+loadEnvConfig(process.cwd());
 
 function getMongoUri() {
   const mongoUri = process.env.MONGODB_URI;
