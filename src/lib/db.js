@@ -6,7 +6,15 @@ if (dns.setDefaultResultOrder) {
   dns.setDefaultResultOrder('ipv4first');
 }
 
-const MONGODB_URI = process.env.MONGODB_URI;
+function getMongoUri() {
+  const mongoUri = process.env.MONGODB_URI;
+
+  if (!mongoUri) {
+    throw new Error('MONGODB_URI environment variable is missing. Set it in your local env file or deployment environment settings.');
+  }
+
+  return mongoUri;
+}
 
 /**
  * Global is used here to maintain a cached connection across hot reloads
@@ -20,9 +28,7 @@ if (!cached) {
 }
 
 async function dbConnect() {
-  if (!MONGODB_URI) {
-    throw new Error('MONGODB_URI environment variable is missing. Set it in your local env file or deployment environment settings.');
-  }
+  const MONGODB_URI = getMongoUri();
 
   if (cached.conn) {
     return cached.conn;

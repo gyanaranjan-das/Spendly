@@ -39,14 +39,15 @@ export async function POST(req) {
       { status: 201 }
     );
   } catch (error) {
-    console.error('Registration Error:', error);
-
     if (error.message?.includes('MONGODB_URI environment variable is missing')) {
+      console.warn('Registration blocked: database configuration is missing');
       return NextResponse.json(
         { error: 'Database configuration is missing' },
         { status: 503 }
       );
     }
+
+    console.error('Registration Error:', error);
 
     // Mongoose validation error
     if (error.name === 'ValidationError') {
