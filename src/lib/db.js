@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
 import dns from 'dns';
+import mongoose from 'mongoose';
 
 // Fix for DNS resolution issues in Node 18+
 if (dns.setDefaultResultOrder) {
@@ -9,7 +9,7 @@ if (dns.setDefaultResultOrder) {
 const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
-  console.warn('⚠️ MONGODB_URI environment variable is missing. Please define it in .env.local');
+  console.warn('⚠️ MONGODB_URI environment variable is missing. Set it in your local env file or deployment environment settings.');
 }
 
 /**

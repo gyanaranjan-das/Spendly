@@ -53,13 +53,17 @@
    ```
 
 3. **Set up environment variables**
-   Create a `.env.local` file in the root directory and add the following:
+   Create a `.env.local` file in the root directory for local development and add the following:
 
    ```env
    MONGODB_URI=your_mongodb_connection_string
    NEXTAUTH_SECRET=your_nextauth_secret
    NEXTAUTH_URL=http://localhost:3000
    ```
+
+   For deployment, set the same variables in your hosting provider's environment settings instead of relying on `.env` files. Make sure `NEXTAUTH_URL` points to the deployed domain, not `http://localhost:3000`.
+
+   After changing environment variables in production, redeploy the app so the new values are picked up.
 
 4. **Run the development server**
 
@@ -83,8 +87,8 @@ src/
 
 ---
 
-**Version:** 0.1.0 (Prototype / MVP Stage)  
-**Status:** In Development  
+**Version:** 0.1.0 (Prototype / MVP Stage)
+**Status:** In Development
 **Last Updated:** May 15, 2026
 
 *Made with ❤️.*
