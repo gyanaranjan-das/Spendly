@@ -1,7 +1,7 @@
-import CredentialsProvider from 'next-auth/providers/credentials';
 import dbConnect from '@/lib/db';
 import User from '@/models/User';
 import bcrypt from 'bcryptjs';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
 export const authOptions = {
   trustHost: true,
