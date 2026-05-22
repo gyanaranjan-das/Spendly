@@ -8,10 +8,6 @@ if (dns.setDefaultResultOrder) {
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-if (!MONGODB_URI) {
-  throw new Error('MONGODB_URI environment variable is missing. Set it in your local env file or deployment environment settings.');
-}
-
 /**
  * Global is used here to maintain a cached connection across hot reloads
  * in development. This prevents connections growing exponentially
@@ -24,6 +20,10 @@ if (!cached) {
 }
 
 async function dbConnect() {
+  if (!MONGODB_URI) {
+    throw new Error('MONGODB_URI environment variable is missing. Set it in your local env file or deployment environment settings.');
+  }
+
   if (cached.conn) {
     return cached.conn;
   }
